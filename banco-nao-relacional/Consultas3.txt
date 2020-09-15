@@ -1,0 +1,28 @@
+db.estados.aggregate([
+    { $match: {"cidades.nome": "Niterói"} },
+]).pretty()
+
+
+// cidades está do lado DIREITO então tem q colocar $
+db.estados.aggregate([
+    { $match: {"cidades.nome": "Niterói"} },
+    { $unwind: "$cidades" },
+]).pretty()
+
+
+
+db.estados.aggregate([
+    { $match: {"cidades.nome": "Niterói"} },
+    { $unwind: "$cidades" },
+    { $match: {"cidades.nome": "Niterói"} }
+]).pretty()
+
+
+
+// Filtrar o ID dentro de estados.cidades.nome
+db.estados.aggregate([
+    { $match: {"cidades.nome": "Campinas"} },
+    { $unwind: "$cidades" },
+    { $match: {"cidades.nome": "Campinas"} },
+    { $project: {_id: "$cidades._id"} }
+]).pretty()

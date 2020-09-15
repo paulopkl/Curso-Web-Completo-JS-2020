@@ -1,0 +1,20 @@
+{
+  "name": "funcionarios",
+  "version": "1.0.0",
+  "description": "kdkdkds",
+  "main": "src/servidor.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Paulo R.A.A.",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.18.2",
+    "express": "4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.2"
+  }
+}

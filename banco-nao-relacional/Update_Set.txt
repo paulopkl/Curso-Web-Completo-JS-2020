@@ -1,0 +1,24 @@
+// Insira populacao = 45340000 dentro do objeto com a sigla = "SP"
+db.estados.update({ sigla: "SP" }, { $set: {populacao: 45340000}})
+
+
+
+// o $set seta um novo valor em que tem a sigla = "AL"
+db.estados.update({ sigla: "AL" }, { $set: {cidades: [{nome: "Sergipe"}]}})
+
+
+
+// Adiciona dentro do ARRAY cidades usando o $push
+db.estados.update({ sigla: "SP" }, { $push: {cidades: {nome: "Santos", populacao: 433966}}})
+
+
+
+// Me traga todos os 'nomes' menos o '_id' de estados que tenha populacao existentes
+db.estados.find({populacao: {$exists: true}}, {_id: 0, nome: 1})
+
+
+
+// Atualize todos os documentos
+db.estados.update({}, {$set: { estado: "atualizado"}})
+
+

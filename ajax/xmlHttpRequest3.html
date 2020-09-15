@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>XMLHttpRequest #03</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+        function ajax(config) {
+            const xhr = new XMLHttpRequest();
+
+            xhr.open(config.method, config.url, true); // GET, Local que consome, 
+
+            xhr.onreadystatechange = e => {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        config.sucesso(xhr.responseXML); // isso define um .XML
+                    } else if (xhr.status >= 400) {
+                        config.erro({
+                            codigo: xhr.status,
+                            texto: xhr.statusText
+                        });
+                    }
+                }
+            }
+
+            xhr.send();
+        }
+
+        ajax({
+            url: "dados/estados.xml", // Local que vai consumir
+            method: "get",
+            sucesso(resposta) {
+                console.log(resposta);
+                
+                const estados = resposta.getElementsByTagName('estado'); // Pega uma lista de Tags
+                const itens = Array.from(estados).reduce( // Converte estados para um Array
+                  // reduce transforma esse array em um unico elemento no final que será uma string
+                    (html, estado) => html + `<li>${estado.attributes.nome.value}</li>`, ''
+                    // html é o acumulador, ele vai concatenando os <li> e formando uma lista
+                );
+                document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul>`);
+            },
+            erro(e) {
+                const msg = document.createTextNode(`${e.codigo}: ${e.texto}`);
+                document.body.appendChild(msg);
+            }
+        });
+
+    </script>
+</body>

@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Prato da Casa: Arroz feijão",
+      "email": "teste@cod3r.com.br"
+    },
+    {
+      "id": 2,
+      "name": "Julia",
+      "email": "troxa@hotmail.com"
+    },
+    {
+      "id": 3,
+      "name": "Julia",
+      "email": "troxa@hotmail.com"
+    }
+  ]
+}

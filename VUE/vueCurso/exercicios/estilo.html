@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Aplicando Estilo</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+    <style>
+        .vermelho {
+            background-color: red;
+        }
+        .verde {
+            background-color: green;
+        }
+    </style>
+</head>
+<body class="exercicio">
+    <div id="div" @click="aplicarCorVermelho = !aplicarCorVermelho, aplicarCorVerde = !aplicarCorVerde" 
+    :class="{vermelho: aplicarCorVermelho, verde: aplicarCorVerde}">
+        Teste
+    </div>
+
+    <script>
+        new Vue({
+            el: '#div',
+            data: {
+                aplicarCorVermelho: false,
+                aplicarCorVerde: true,
+            }
+        })
+    </script>
+</body>
+</html>

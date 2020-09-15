@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #03</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Modificando HTML #03</h1>
+    <div id='conteudo'></div>
+
+    <script>
+        const pessoas = [
+            { nome: 'Ana', nota: 9.1 },
+            { nome: 'Bianca', nota: 8.4 },
+            { nome: 'Carlos', nota: 7.6 },
+            { nome: 'Julia', nota: 9.7 }
+        ]
+        
+        // $('#conteudo').append('<table style="width: 100%"></table>');
+        // $('table ').append('<tr id="1"></tr>');
+        // $('tr[id="1"]').append('<th id="th1"></th>');
+        // $('tr[id="1"]').append('<th id="th2"></th>');
+        // $('th[id="th1"]').append('Nome: ');
+        // $('th[id="th2"]').append('Nota: ');
+        // $('table').append('<tr id="2"></tr>');
+        // $('table').append('<tr id="3"></tr>');
+        // $(pessoas).each((i, e) => {
+        //     $('tr[id="2"]').append(`<td id="${i}"></td>`);
+        //     $(`td[id="${i}"]`).append(pessoas[i].nome);
+
+        //     $('tr[id="3"]').append(`<td id="${i+10}"></td>`);
+        //     $(`td[id="${i+10}"]`).append(pessoas[i].nota);
+        // });
+
+        // $(function () {
+
+        // });
+
+        $(document).ready(function () {
+            const linhas = pessoas.map(p => {
+                const tdNome = $('<td></td>').html(p.nome);
+                const tdNota = $('<td></td>').html(p.nota);
+                return $('<tr></tr>').append(tdNome, tdNota);
+                // return $('<tr></tr>').append([tdNome, tdNota]);
+            });
+
+            const tabela = $('<table></table>').append(linhas).css('border', 'solid 5px black');
+
+            $('#conteudo').append(tabela);
+        });
+
+    </script>
+</body>

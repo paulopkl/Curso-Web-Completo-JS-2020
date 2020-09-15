@@ -1,0 +1,5 @@
+Consultar determinados valores como sigla e nome tirando o id ->
+
+            db.estados.find({ sigla: "SP" }, { nome: 1, sigla: 1, _id: 0 })
+
+            db.estados.findOne({ sigla: "RJ" })

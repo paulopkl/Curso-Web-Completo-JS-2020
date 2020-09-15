@@ -1,0 +1,16 @@
+Mostrar Schema -> 
+            use SchemaTeste
+
+
+Criar Collection -> 
+            db.createCollection('Teste')
+
+
+Mostrar Bancos -> 
+            show dbs
+
+
+Deletar Bancos -> 
+            db.Teste.drop()
+
+            db.createCollection('estados')

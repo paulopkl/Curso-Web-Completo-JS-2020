@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Fetch API #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+
+    <script>
+
+        fetch('naoAbra/mandei/nao/abrir/batata.json')
+            .then(resposta => resposta.json())
+            .then(pessoa => {
+                const cada = pessoa.reduce(
+                (html, persona) => html + `<li>${persona.numero}, ${persona.nome} QI: ${persona.Qi}</li>`, '');
+                document.body.innerHTML = '<h1>Pessoas</h1>' + `<ul>${cada}</ul>`;
+            });
+
+    </script>
+
+</body>
+</html>

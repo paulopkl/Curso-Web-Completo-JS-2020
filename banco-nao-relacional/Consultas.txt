@@ -1,0 +1,30 @@
+            db.estados.find()
+            
+            
+            db.estados.find().pretty()
+
+
+Constultar primeiro resultado de 'estados' ->
+            db.estados.findOne()
+            
+            
+Consultar com delitimitações ->
+            db.estados.findOne({ sigla: "RJ" })
+
+
+Consultar com WHERE usando ou ->
+            db.estados.find({ $or: [ { sigla: "RJ", }, { sigla: "AC" } ]}).pretty()
+
+
+Consultar todos que tem esse atributo 'populacao' ->
+            db.estados.find(populacao: {$exists: true}).pretty()
+
+
+Pular 1º Registro ->
+            db.estados.find()pretty()
+
+
+Pular 1º Registro, e mostrar apenas 2 registros seguintes ->
+            db.estados.find().skip(1).limit(2).pretty()
+
+

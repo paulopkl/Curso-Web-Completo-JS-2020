@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Caneta BIC Preta",
+      "price": 5.89
+    },
+    {
+      "id": 2,
+      "name": "Notebook Mac Pro",
+      "price": "1200.89"
+    },
+    {
+      "name": "produto created with sucess",
+      "price": "19.99",
+      "id": 3
+    },
+    {
+      "name": "Tested new Product create with Angula nine(9)",
+      "price": "1.1",
+      "id": 4
+    },
+    {
+      "name": "React product",
+      "price": "199.97",
+      "id": 5
+    },
+    {
+      "name": "asddsa",
+      "price": "121",
+      "id": 6
+    },
+    {
+      "name": "teste",
+      "price": "100",
+      "id": 7
+    },
+    {
+      "name": "teste",
+      "price": "100",
+      "id": 8
+    }
+  ]
+}

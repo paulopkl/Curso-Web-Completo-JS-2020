@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Fetch API #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário Via Fetch</h1>
+    <form name="usuarioForm" action="formulario" method="post">
+        <input type="text" name="nome" placeholder="Nome..." />
+        <input type="text" name="sobrenome" placeholder="Sobrenome..." />
+        <button>Salvar</button>
+    </form>
+    <div id="resultado"></div>
+    <script>
+
+        document.usuarioForm.onsubmit = async e => {
+            e.preventDefault();
+
+            const data = new FormData(e.target);
+            data.append('ajax', true);
+
+            const options = {
+                method: e.target.method, // post
+                body: new URLSearchParams(data), // Para os dados serem enviados ao backend de 
+                // forma correta
+            }
+
+            const resultado = document.querySelector('#resultado');
+            // fetch(e.target.action, options).then(res => res.json()).then(
+            //     json => {
+            //         resultado.innerHTML = JSON.stringify(json);
+            //     }).catch( erro => {
+            //         resultado.innerHTML = erro;
+            //     });
+            try {
+                const resp = await fetch(e.target.action, options)
+                const json = await resp.json()
+                resultado.innerHTML = JSON.stringify(json);
+            } catch (erro) {
+                resultado.innerHTML = erro;
+            } 
+        }
+    
+    </script>
+</body>

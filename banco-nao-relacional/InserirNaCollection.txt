@@ -1,0 +1,22 @@
+
+Cria a collection e inseri os Dados ao mesmo tempo -> 
+            db.teste.insert({ nome: "Paulo", idade: 18 })
+            db.estados.insert({ nome: "Acre", sigla: "AC", regiao: "Norte" })
+
+
+Inserir e salvar -> 
+            db.estados.save({ nome: "Alagoas", sigla: "AL", regiao: "Nordeste", populacao: 3322000 })
+
+
+Criar Dados 2 ->
+            db.estados.insert({
+                nome: "Rio de Janeiro",
+                sigla: "RJ",
+                regiao: "Sudeste",
+                cidades: [{
+                    _id: ObjectId(),
+                    nome: "Niterói",
+                    area: 133.9,
+                    populacao: 487562
+                }]
+            })

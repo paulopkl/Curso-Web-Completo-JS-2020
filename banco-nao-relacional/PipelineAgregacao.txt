@@ -1,0 +1,26 @@
+db.estados.aggregate([
+    { $project: { nome: 1, "cidades.nome": 1, _id: 0 }}
+])
+
+
+
+// tem que usar o $ na cidades por que o mongo tem que interpolar
+db.estados.aggregate([
+    { $project: {populacao: {$sum: "$cidades.populacao"}, sigla: 1, _id: 0} }
+]).pretty()
+
+
+db.estados.aggregate([
+    { $project: {populacao: {$sum: "$cidades.populacao"}, sigla: 1, _id: 0} },
+    { $group: {_id: null, populacaoTotal: {$sum: "$populacao"}}}
+]).pretty()
+
+
+
+// Consulta: populacao = soma de todas as 'cidades.populacao', com sigla = true e sem _id
+// Agroupou a soma das 'populacao' em um campo 'populacaoTotal'
+db.estados.aggregate([
+    { $project: {populacao: {$sum: "$cidades.populacao"}, sigla: 1, _id: 0} },
+    { $group: {_id: null, populacaoTotal: {$sum: "$populacao"}}},
+    { $project: { _id: 0, populacaoTotal: 1}},
+]).pretty()

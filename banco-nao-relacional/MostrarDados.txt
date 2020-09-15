@@ -1,0 +1,6 @@
+Mostrar no modelo common -> 
+            db.estados.find()
+
+
+Mostrar no modelo de JSON ->
+            db.estados.find().pretty()

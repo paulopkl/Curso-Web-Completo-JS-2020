@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+
+        body {
+            background-color: lightgray;
+            margin: 0px;
+            font-size: 20pt;
+            font-family: 'Oswald';
+            box-sizing: border-box;
+        }
+
+        .cabecalho {
+            background-color: #333;
+            padding: 20px 10px 0px 10px;
+            height: 80px;
+            border-bottom: 5px solid #4faddb;
+            box-sizing: content-box;
+        }
+
+        .autenticacao {
+            float: right;
+            height: 80px;
+        }
+
+        .menu, .menu > ul > li, .logo  {
+            display: inline-block;
+        }
+
+        .menu ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .logo {
+            height: 60px;
+            width: 20%;
+        }
+
+        nav.menu {
+            display: inline-block;
+            vertical-align: top;
+            height: 80px; 
+        }
+
+        .menu-toggle {
+            float: right;
+            background-color: #555;
+            color: #eee;
+            border: 1px solid #777;
+            border-radius: 5px;
+            height: 40px;
+            padding: 10px 20px;
+            margin: 20px 15px;
+        }
+
+        ul > li > a, aside > a{
+            color: white;
+            text-decoration: none;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0px 15px;
+        }
+
+        ul a {
+            font-size: 1.3em;
+            padding: 15px;
+        }
+
+        .botao {
+            display: inline-block;
+            background-color: red;
+            padding: 10px 25px;
+            border-radius: 30px;
+        }
+
+        .destaque {
+            background-color: #f50a31;
+            color: #fff;
+        }
+
+        li a:hover, 
+        li a.selected {
+            background-color: #4faddb;
+            color: black;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        @media (max-width: 920px) {
+            .autenticacao {
+                display: none;
+            }
+        }
+
+        @media (min-width: 679px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        @media (max-width: 780px) {
+            .menu {
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+        <!--  Icone responsivo  -->
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <!-- Menu  -->
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+                <li>
+                    <a href="#cursos">Cursos</a>
+                </li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Botôes  -->
+        <aside class="autenticacao">
+            <a href="#login">Login</a>
+            <a href="#registar" class="botao destaque">Registrar</a>
+        </aside>
+        <!--  -->   
+    </header>
+
+
+
+    <script>
+        window.onhashchange = function (e) {
+            const oldURL = e.oldURL.split('#')[1];
+            const newURL = e.newURL.split('#')[1];
+            const oldLink = document.querySelector(`.menu a[href='#${oldURL}']`);
+            const newLink = document.querySelector(`.menu a[href='#${newURL}']`);
+            console.log(oldURL, newURL);
+            oldLink && oldLink.classList.remove('selected');
+            newLink && newLink.classList.add('selected');
+        }
+    </script>
+</body>
+
+</html>
